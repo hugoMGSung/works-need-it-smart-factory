@@ -1,0 +1,24 @@
+﻿<Window x:Class="BaseControlApp.ThirdWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BaseControlApp"
+        mc:Ignorable="d"
+        Title="ThirdWindow" Height="450" Width="800">
+    <Canvas>
+        <!-- 기본사각형 -->
+        <Rectangle Width="20" Height="20" Fill="Red" />
+
+        <!-- Path StreamGeometry, SVG(Scalable Vector Graphics)  -->
+        <Path Fill="Red" Width="246.552" Height="246.552" Data="m147.45698,77.21737 l-84.59125,57.71083l83.5455,19.82641l-77.22038,61.95755l-31.17698,-10.46247l22.11274,59.72026l87.87817,-26.05559l-37.10357,-10.89111l100.75251,-88.99106l-92.09917,-16.12902l88.93665,-60.13559l-50.73115,-9.02905l55.25383,-38.21931l-20.29791,-0.54927l-85.743,52.43279l40.48401,8.81466l0.00001,-0.00002 Z" Stretch="Fill" Canvas.Left="37.224" Canvas.Top="59.224">
+        </Path> 
+
+        <!-- Geometry 객체 사용 -->
+        <Path Fill="Red">
+            <Path.Data>
+                <RectangleGeometry Rect="100, 10, 20, 20" />
+            </Path.Data>
+        </Path>
+    </Canvas>
+</Window>

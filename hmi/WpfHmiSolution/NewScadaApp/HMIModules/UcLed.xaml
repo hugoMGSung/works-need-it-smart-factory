@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="NewScadaApp.UcLed"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NewScadaApp"
+             mc:Ignorable="d" x:Name="uc"
+             d:DesignHeight="100" d:DesignWidth="100" DataContext="{Binding}">
+    <Viewbox>
+        <Canvas Height="100" Width="100">
+            <!-- Step 1 LED테두리 외곽-->
+            <Ellipse Canvas.Left="0" Canvas.Top="0" Width="100" Height="100"
+                     StrokeThickness="0.5" Stroke="Gray">
+                <Ellipse.Fill>
+                    <LinearGradientBrush StartPoint="0.5,1" EndPoint="1,0" SpreadMethod="Pad">
+                        <GradientStop Color="#071923" Offset="0" />
+                        <GradientStop Color="White" Offset="1" />
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <!-- Step 2 LED테두리 내부-->
+            <Ellipse Canvas.Left="7.25" Canvas.Top="7.25" Width="85" Height="85" StrokeThickness="0.5" Stroke="Gray">
+                <Ellipse.Fill>
+                    <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,1" SpreadMethod="Pad">
+                        <GradientStop Color="#071923" Offset="0" />
+                        <GradientStop Color="White" Offset="1" />
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <!-- Step 3 LED-->
+            <Ellipse Canvas.Left="12.25" Canvas.Top="12.25" Width="75" Height="75" StrokeThickness="1" Stroke="Black">
+                <Ellipse.Fill>
+                    <RadialGradientBrush Center="0.6,0.35" GradientOrigin="0.6,0.35" RadiusX="0.67" RadiusY="0.67">
+                        <GradientStop Color="White" Offset="0" />
+                        <GradientStop Color="{Binding Path=CurrState, ElementName=uc}" Offset="1" />
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Canvas>
+    </Viewbox>
+</UserControl>
