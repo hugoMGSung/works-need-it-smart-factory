@@ -1,0 +1,47 @@
+﻿<Window x:Class="ButtonTestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ButtonTestApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="myBtnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="{Binding Width}"></Setter><!-- 1 -->
+            <Setter Property="Height" Value="{Binding Height}"></Setter><!-- 2 -->
+            <Setter Property="Effect"><!-- 4 -->
+                <Setter.Value>
+                    <DropShadowEffect Color="White" ShadowDepth="0"
+                                      BlurRadius="10"></DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template"><!-- 3 -->
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Name="myElip">
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush Center="0.5, 0.5" RadiusX="0.5" RadiusY="0.5"
+                                                         GradientOrigin="0.6, 0.3">
+                                        <GradientStop Color="WhiteSmoke" Offset="0.0"></GradientStop>
+                                        <GradientStop Color="Blue" Offset="0.8"></GradientStop>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+        </Style>
+    </Window.Resources>
+    <Grid Background="Black">
+        <Button x:Name="btnEx" Width="70" Height="70" HorizontalAlignment="Left"
+                VerticalAlignment="Top" Margin="145,81,0,0" Foreground="White"
+                Style="{StaticResource myBtnStyle}">
+            <!--Click Me-->
+        </Button>
+    </Grid>
+</Window>

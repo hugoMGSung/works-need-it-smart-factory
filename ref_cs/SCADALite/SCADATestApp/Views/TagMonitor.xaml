@@ -1,0 +1,34 @@
+﻿<Window x:Class="SCADATest.Views.TagMonitor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SCADATest"
+        xmlns:wpt="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+        mc:Ignorable="d"
+        TextOptions.TextFormattingMode="Display" FontFamily="NanumGothic"
+        Title="태그모니터링" Height="700" Width="900" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Window.Resources>
+        <ContextMenu x:Key="sampleContextMenu" >
+            <MenuItem Header="작성" Command="{x:Static local:MyCommands.Edit}" CommandParameter="0"/>
+            <MenuItem Header="시뮬레이션작성" Command="{x:Static local:MyCommands.Edit}" CommandParameter="1"/>
+            <Separator />
+        </ContextMenu>
+    </Window.Resources>
+    <Grid>
+        <DataGrid  Name="list1" GridLinesVisibility="All" IsReadOnly="True"  AutoGenerateColumns="False" RowBackground="LightYellow" ContextMenu="{StaticResource sampleContextMenu}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="350" Header="태그명" Binding="{Binding Path=TagName}"/>
+                <DataGridTextColumn Width="200" Header="주소" Binding="{Binding Path=Address}"/>
+                <DataGridTextColumn Width="150" Header="태그값" Binding="{Binding Path=TagValue}"/>
+                <DataGridTextColumn Width="150" Header="타임스탬프" Binding="{Binding Path=TimeStamp}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <wpt:ChildWindow Grid.Row="2" Height="86" WindowStartupLocation="Center" Name="childWindow1" Width="226" IsModal="True" Caption="입력값">
+            <Canvas>
+                <TextBox Height="30" Name="textBox1" Width="122" FontSize="20" FontWeight="Bold" Canvas.Left="16" Canvas.Top="9" />
+                <Button Width="60" Height="30" Content="결정" Canvas.Left="144" Canvas.Top="9" Click="Button_Click" IsDefault="True"/>
+            </Canvas>
+        </wpt:ChildWindow>
+    </Grid>
+</Window>

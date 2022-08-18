@@ -1,0 +1,19 @@
+﻿<UserControl 
+    x:Class="SCADATest.Views.MaterialRecivingLine"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:SCADATest.Views"
+    xmlns:hmi="clr-namespace:HMIControl;assembly=HMIControl" 
+    mc:Ignorable="d" Background="#FF2B5F5B"
+    Name="MaterialRecivingLine1"
+    Width="1600" Height="900" Loaded="HMI_Loaded" Unloaded="HMI_Unloaded">
+    <Canvas x:Name="cvs1">
+        <TextBlock 
+            Canvas.Left="10" Canvas.Top="10" TextAlignment="Center"
+            FontSize="24" FontStyle="Normal" FontWeight="Bold" Foreground="White" 
+            Width="Auto" Height="40" Name="productline" Text="Material Insert" />
+        <hmi:ManualAddControl Canvas.Left="41" Canvas.Top="184" Height="122" Name="manualAddControl1" Width="112" TagReadText="fan.운행:Receiving1_Fan2_Running\fan.장치명:Receiving1_Fan2\fan.알람:Receiving1_Fan2_Alarm\" />
+    </Canvas>
+</UserControl>

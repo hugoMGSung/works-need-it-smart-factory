@@ -1,0 +1,13 @@
+﻿<Window x:Class="CodeFirstAnimationApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeFirstAnimationApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Rectangle Width="210" Height="56" Margin="290,139" Name="rectangle1" Stroke="Black" VerticalAlignment="Top"                 Fill="#FFFA0000" />
+        <Button Content="Animate" Height="34" HorizontalAlignment="Left" Margin="21,367,0,0" Name="BtnRotate"                          VerticalAlignment="Top" Width="89" Click="BtnRotate_Click" />
+    </Grid>
+</Window>
